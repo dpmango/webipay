@@ -1,1 +1,1 @@
-export { ui, UiStoreContext } from './UiStore';
+export { session, SessionStoreContext } from './SessionStore';

@@ -10,7 +10,7 @@ const Main = styled.main`
   flex: 1 0 auto;
   display: flex;
   flex-direction: column;
-  padding-top: 102px;
+  padding: 0px 0 160px;
 `;
 
 export { Page, Main };

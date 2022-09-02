@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import cns from 'classnames';
 
 import { SvgIcon, Avatar } from '@ui';
-import { UiStoreContext } from '@store';
+import { SessionStoreContext } from '@store';
 
 import { Container, Wrapper, Back } from './Header.styles';
 
@@ -14,7 +14,7 @@ const Header = observer(({ className }) => {
 
   const { t } = useTranslation('header');
 
-  const uiContext = useContext(UiStoreContext);
+  const uiContext = useContext(SessionStoreContext);
   const { pathname } = useLocation();
   const location = useLocation();
   const navigate = useNavigate();
