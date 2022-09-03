@@ -54,7 +54,7 @@ export default {
     },
   },
   footer: {
-    top: 'zestPay is a registered trading name of PSI-Pay Ltd, company authorised and regulated by the <a href="#">the Financial Conduct Authority</a> of the United Kingdom under the Electronic Money Regulations 2011 (register reference number 900011) for the issuing of electronic money.',
+    top: 'zestPay is a registered trading name of PSI-Pay Ltd, company authorised and regulated by the <a href="https://www.fca.org.uk/" target="_blank">the Financial Conduct Authority</a> of the United Kingdom under the Electronic Money Regulations 2011 (register reference number 900011) for the issuing of electronic money.',
     poweredby:
       'zestPay is powered by Trustly, an authorised payment institution under Swedish Financial Supervisory Authority (FSA) regulation.',
     copyright: '© 2022, zestPay. All rights reserved.',

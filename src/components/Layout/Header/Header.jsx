@@ -24,18 +24,16 @@ const Header = observer(({ className }) => {
   };
 
   return (
-    <>
-      <Container>
-        <div className="container">
-          <Wrapper>
-            <Back onClick={handleBackClick}>
-              <SvgIcon name="arrow-back" />
-              <span>{t('back')}</span>
-            </Back>
-          </Wrapper>
-        </div>
-      </Container>
-    </>
+    <Container>
+      <div className="container header">
+        <Wrapper>
+          <Back onClick={handleBackClick}>
+            <SvgIcon name="arrow-back" />
+            <span>{t('back')}</span>
+          </Back>
+        </Wrapper>
+      </div>
+    </Container>
   );
 });
 

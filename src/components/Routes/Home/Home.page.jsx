@@ -4,7 +4,7 @@ import { useSearchParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import { SessionStoreContext } from '@store';
 
-import { PaymentHead, PaymentForm, PaymentSelect } from '@c/Payment';
+import { PaymentHead, PaymentForm, PaymentSelect, PaymentError } from '@c/Payment';
 
 const HomePage = observer(({ tab }) => {
   const uiContext = useContext(SessionStoreContext);
@@ -21,6 +21,10 @@ const HomePage = observer(({ tab }) => {
     return pay;
   }, [searchParams]);
 
+  const error = useMemo(() => {
+    return !id;
+  }, [id]);
+
   return (
     <>
       <Helmet>
@@ -28,7 +32,8 @@ const HomePage = observer(({ tab }) => {
       </Helmet>
 
       <PaymentHead />
-      {payId ? <PaymentForm payId={payId} /> : <PaymentSelect />}
+      {payId ? <PaymentForm payId={payId} /> : <>{!error && <PaymentSelect />}</>}
+      {error && <PaymentError />}
     </>
   );
 });
