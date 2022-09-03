@@ -6,12 +6,18 @@ const Wrapper = styled.div`
   justify-content: center;
   flex-wrap: wrap;
   padding: 16px 0;
+  @media screen and (max-width: 767px) {
+    flex-direction: column;
+  }
 `;
 
 const Label = styled.div`
   font-size: 15px;
   line-height: 24px;
   margin-right: 24px;
+  @media screen and (max-width: 767px) {
+    margin-right: 0;
+  }
 `;
 
 const ContactLink = styled.a`
@@ -34,6 +40,9 @@ const Email = styled(ContactLink)`
   margin-right: 24px;
   svg {
     font-size: 17px;
+  }
+  @media screen and (max-width: 767px) {
+    margin-right: 0;
   }
 `;
 

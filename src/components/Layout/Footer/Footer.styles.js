@@ -20,4 +20,13 @@ const Container = styled.footer`
   }
 `;
 
-export { Container };
+const Wrapper = styled.div`
+  max-width: 1440px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 50px;
+  padding-right: 50px;
+`;
+
+export { Container, Wrapper };

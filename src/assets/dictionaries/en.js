@@ -60,4 +60,14 @@ export default {
     copyright: '© 2022, zestPay. All rights reserved.',
     policies: 'Policies',
   },
+  page: {
+    policy: {
+      title: 'Policy page',
+      text: `
+        <p>You can use our services in a variety of ways to manage your privacy. For example, you can sign up for a Google Account if you want to create and manage content like emails and photos, or see more relevant search results. And you can use many Google services when you’re signed out or without creating an account at all, like searching on Google or watching YouTube videos. You can also choose to browse the web in a private mode, like Chrome Incognito mode. And across our services, you can adjust your privacy settings to control what we collect and how your information is used.</p>
+        <p>We build a range of services that help millions of people daily to explore and interact with the world in new ways. Our services include:</p>
+        <p>Products that are integrated into third-party apps and sites, like ads, analytics, and embedded Google Maps</p>
+      `,
+    },
+  },
 };

@@ -30,7 +30,7 @@ i18n
       bindI18nStore: '',
       transEmptyNodeValue: '',
       transSupportBasicHtmlNodes: true,
-      transKeepBasicHtmlNodesFor: ['br', 'a', 'strong', 'i'],
+      transKeepBasicHtmlNodesFor: ['br', 'a', 'p', 'strong', 'i'],
       useSuspense: false,
     },
     interpolation: {

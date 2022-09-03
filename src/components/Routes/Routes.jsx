@@ -1,14 +1,15 @@
-import React, { lazy, Suspense, useContext } from 'react';
-import { BrowserRouter, Routes, Route, Redirect } from 'react-router-dom';
+import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import Layout from '@c/Layout/';
-import { Home } from '@c/Routes';
+import { Home, Policy } from '@c/Routes';
 
 const Router = () => (
   <BrowserRouter>
     <Layout variant="main">
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/policy" element={<Policy />} />
       </Routes>
     </Layout>
   </BrowserRouter>

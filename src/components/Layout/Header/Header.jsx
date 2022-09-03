@@ -26,7 +26,7 @@ const Header = observer(({ className }) => {
       { value: 'cd', label: 'Czech', disabled: true },
       { value: 'da', label: 'Danish', disabled: true },
       { value: 'nl', label: 'Dutch', disabled: true },
-      { value: 'es', label: 'Estonian', disabled: true },
+      { value: 'et', label: 'Estonian', disabled: true },
       { value: 'fi', label: 'Finnish', disabled: true },
       { value: 'fr', label: 'French', disabled: true },
       { value: 'de', label: 'German' },
@@ -45,7 +45,7 @@ const Header = observer(({ className }) => {
 
   return (
     <Container>
-      <div className="container header">
+      <div className="container">
         <Wrapper>
           <Back onClick={handleBackClick}>
             <SvgIcon name="arrow-back" />

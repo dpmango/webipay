@@ -3,14 +3,21 @@ import styled from 'styled-components';
 const Container = styled.section`
   position: relative;
   margin-top: 28px;
+  @media screen and (max-width: 767px) {
+    margin-top: 0;
+  }
 `;
 
 const SelectTitle = styled.h2`
   font-weight: 700;
   font-size: 36px;
-  line-height: 41px;
+  line-height: 1.14;
   text-align: center;
   margin: 32px 0;
+  @media screen and (max-width: 767px) {
+    font-size: 24px;
+    margin: 24px 0;
+  }
 `;
 
 const SelectBox = styled.div`
@@ -24,6 +31,7 @@ const SelectBox = styled.div`
 const Option = styled.div`
   position: relative;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   padding: 32px 32px;
   cursor: pointer;
@@ -46,6 +54,9 @@ const Option = styled.div`
       display: none;
     }
   }
+  @media screen and (max-width: 767px) {
+    padding: 24px 32px;
+  }
 `;
 
 const OptionLogo = styled.div`
@@ -55,6 +66,13 @@ const OptionLogo = styled.div`
     font-size: ${(p) => p.name === 'pandapay' && '31px'};
     font-size: ${(p) => p.name === 'wirepay' && '29px'};
   }
+  @media screen and (max-width: 767px) {
+    flex-basis: 100%;
+    svg {
+      font-size: ${(p) => p.name === 'pandapay' && '36px'};
+      font-size: ${(p) => p.name === 'wirepay' && '34px'};
+    }
+  }
 `;
 
 const OptionDescription = styled.div`
@@ -62,6 +80,10 @@ const OptionDescription = styled.div`
   font-weight: 400;
   font-size: 15px;
   line-height: 24px;
+  padding-right: 10px;
+  @media screen and (max-width: 767px) {
+    flex-basis: calc(100% - 10px);
+  }
 `;
 
 const OptionCaret = styled.div`

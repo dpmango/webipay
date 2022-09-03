@@ -3,15 +3,19 @@ import styled from 'styled-components';
 const Container = styled.div`
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
 `;
 
 const Label = styled.label`
   flex: 0 0 37%;
   display: block;
   font-size: 18px;
-  line-height: 28px;
+  line-height: 1.56;
   color: var(--color-font);
   font-weight: ${(p) => (!p.bold ? '400' : '700')};
+  @media screen and (max-width: 767px) {
+    flex-basis: 100%;
+  }
 `;
 
 const Wrapper = styled.div`
@@ -76,6 +80,18 @@ const Wrapper = styled.div`
       opacity: 1;
     }
   }
+  @media screen and (max-width: 767px) {
+    flex-basis: 100%;
+
+    input {
+      padding: 16px 0px 0px;
+      ${(p) =>
+        p.iconed &&
+        `
+        padding-right: 40px;
+      `}
+    }
+  }
 `;
 
 const CopyButton = styled.button`
@@ -97,6 +113,9 @@ const CopyButton = styled.button`
   &:hover {
     color: var(--color-primary);
   }
+  @media screen and (max-width: 767px) {
+    right: 16px;
+  }
 `;
 
 const Helper = styled.div`
@@ -112,6 +131,10 @@ const Helper = styled.div`
   background: rgba(80, 171, 254, 0.2);
   color: var(--color-primary);
   pointer-events: none;
+
+  @media screen and (max-width: 767px) {
+    left: 0;
+  }
 `;
 
 const Error = styled(Helper)`
