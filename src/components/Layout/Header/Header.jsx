@@ -1,18 +1,14 @@
 import React, { useCallback, useContext, useMemo, useState } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { observer } from 'mobx-react-lite';
+import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import cns from 'classnames';
 
-import { SvgIcon } from '@ui';
-import { SessionStoreContext } from '@store';
+import { SvgIcon, Select } from '@ui';
 
-import { Container, Wrapper, Language } from './Header.styles';
+import { Container, Wrapper, Logo, Language } from './Header.styles';
 import { Back } from '@styles/Shared.styles';
 
-const Header = observer(({ className }) => {
+const Header = ({ className }) => {
   const { t, i18n } = useTranslation('header');
-  const uiContext = useContext(SessionStoreContext);
   const navigate = useNavigate();
 
   const handleBackClick = () => {
@@ -23,27 +19,31 @@ const Header = observer(({ className }) => {
     return [
       { value: 'en', label: 'English' },
       { value: 'ar', label: 'Arabic' },
-      { value: 'bg', label: 'Bulgarian', disabled: true },
-      { value: 'hr', label: 'Croatian', disabled: true },
-      { value: 'cd', label: 'Czech', disabled: true },
-      { value: 'da', label: 'Danish', disabled: true },
-      { value: 'nl', label: 'Dutch', disabled: true },
-      { value: 'et', label: 'Estonian', disabled: true },
-      { value: 'fi', label: 'Finnish', disabled: true },
-      { value: 'fr', label: 'French', disabled: true },
+      // { value: 'bg', label: 'Bulgarian', disabled: true },
+      // { value: 'hr', label: 'Croatian', disabled: true },
+      // { value: 'cd', label: 'Czech', disabled: true },
+      // { value: 'da', label: 'Danish', disabled: true },
+      // { value: 'nl', label: 'Dutch', disabled: true },
+      // { value: 'et', label: 'Estonian', disabled: true },
+      // { value: 'fi', label: 'Finnish', disabled: true },
+      // { value: 'fr', label: 'French', disabled: true },
       { value: 'de', label: 'German' },
-      { value: 'el', label: 'Greek', disabled: true },
-      { value: 'hu', label: 'Hungarian', disabled: true },
-      { value: 'it', label: 'Italian', disabled: true },
+      // { value: 'el', label: 'Greek', disabled: true },
+      // { value: 'hu', label: 'Hungarian', disabled: true },
+      // { value: 'it', label: 'Italian', disabled: true },
       { value: 'lv', label: 'Latvian' },
-      { value: 'es', label: 'Spanish', disabled: true },
-      { value: 'sw', label: 'Swedish', disabled: true },
+      // { value: 'es', label: 'Spanish', disabled: true },
+      // { value: 'sw', label: 'Swedish', disabled: true },
     ];
   }, []);
 
   const handleLangSelect = useCallback((lang) => {
-    i18n.changeLanguage(lang);
+    i18n.changeLanguage(lang.value);
   }, []);
+
+  const selectedLang = useMemo(() => {
+    return languages.find((lang) => lang.value === i18n.language);
+  }, [i18n.language, languages]);
 
   return (
     <Container>
@@ -54,19 +54,23 @@ const Header = observer(({ className }) => {
             <span>{t('back')}</span>
           </Back>
 
+          <Logo>
+            <SvgIcon name="logo" />
+          </Logo>
+
           <Language>
-            <select onChange={(e) => handleLangSelect(e.target.value)}>
-              {languages.map((lang) => (
-                <option value={lang.value} key={lang.value} disabled={lang.disabled}>
-                  {lang.label}
-                </option>
-              ))}
-            </select>
+            <Select
+              theme="ghost"
+              value={selectedLang}
+              options={languages}
+              maxMenuHeight={512}
+              isSearchable={false}
+              onChange={handleLangSelect}></Select>
           </Language>
         </Wrapper>
       </div>
     </Container>
   );
-});
+};
 
 export default Header;

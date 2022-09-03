@@ -13,14 +13,23 @@ const Container = styled.header`
 const Wrapper = styled.div`
   display: flex;
   align-items: center;
+  justify-content: space-between;
   padding: 20px 0;
   transition: 0.25s ease-in-out;
   flex-direction: ${(p) => p.theme.rtl && 'row-reverse'};
 `;
 
-const Language = styled.div`
-  margin-left: ${(p) => (p.theme.rtl ? '0' : 'auto')};
-  margin-right: ${(p) => (p.theme.rtl ? 'auto' : '0')};
+const Logo = styled.div`
+  font-size: 0;
+  display: none;
+  svg {
+    font-size: 23px;
+  }
+  @media screen and (max-width: 767px) {
+    display: block;
+  }
 `;
 
-export { Container, Wrapper, Language };
+const Language = styled.div``;
+
+export { Container, Wrapper, Logo, Language };

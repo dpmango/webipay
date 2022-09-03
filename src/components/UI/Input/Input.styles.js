@@ -4,11 +4,7 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  ${(p) =>
-    p.theme.rtl &&
-    `
-    flex-direction: row-reverse;
-  `};
+  ${(p) => p.theme.rtl && 'flex-direction: row-reverse'};
 `;
 
 const Label = styled.label`

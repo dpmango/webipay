@@ -1,25 +1,30 @@
 import React, { useCallback, useMemo, memo } from 'react';
 import Select from 'react-select';
+import { useTranslation } from 'react-i18next';
 import cns from 'classnames';
 import uniqueId from 'lodash/uniqueId';
 
 import { SvgIcon } from '@ui';
-import st from './Select.module.less';
-import stylesGlobal from './Select.less';
+import { Container, Label, Wrapper } from './Select.styles';
 
-const Variants = {
+const Themes = {
   DEFAULT: 'default',
-  SMALL: 'small',
-  STACKED: 'stacked',
+  GHOST: 'small',
 };
 
-const VariantClasses = {
-  [Variants.DEFAULT]: null,
-  [Variants.SMALL]: st._small,
-  [Variants.STACKED]: st._stacked,
+const ThemeClasses = {
+  [Themes.DEFAULT]: null,
+  [Themes.GHOST]: '_ghost',
 };
 
-const SelectComponent = ({ label, value, className, options, onChange, variant, ...props }) => {
+const SelectComponent = ({ label, value, className, options, onChange, theme, ...props }) => {
+  const { i18n } = useTranslation();
+
+  const isRtl = useMemo(() => {
+    const rtlKeys = ['ar'];
+    return rtlKeys.includes(i18n.language);
+  }, [i18n.language]);
+
   const id = useMemo(() => {
     return uniqueId();
   }, []);
@@ -31,23 +36,20 @@ const SelectComponent = ({ label, value, className, options, onChange, variant, 
   }, []);
 
   return (
-    <div className={cns(st.select, className, variant && VariantClasses[variant])}>
-      {label && (
-        <label className={st.label} htmlFor={id}>
-          {label}
-        </label>
-      )}
-      <div className={cns(st.select_wrapper, 'select-container')}>
+    <Container className={cns(className, theme && ThemeClasses[theme])}>
+      {label && <Label htmlFor={id}>{label}</Label>}
+      <Wrapper theme={theme}>
         <Select
           className="react-select-container"
           classNamePrefix="react-select"
           value={value}
           onChange={onSelectChange}
           options={options}
+          isRtl={isRtl}
           {...props}
         />
-      </div>
-    </div>
+      </Wrapper>
+    </Container>
   );
 };
 
