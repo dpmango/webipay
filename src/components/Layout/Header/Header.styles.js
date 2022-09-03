@@ -33,4 +33,8 @@ const Back = styled.div`
   }
 `;
 
-export { Container, Wrapper, Back };
+const Language = styled.div`
+  margin-left: auto;
+`;
+
+export { Container, Wrapper, Back, Language };
