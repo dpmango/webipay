@@ -11,7 +11,9 @@ export default class SessionStore {
   }
 
   async setMerchant(id) {
-    const res = await sessionApi.getMerchantFake(id);
+    const res = await sessionApi.getMerchantFake(id).catch(() => {
+      this.resetSession();
+    });
 
     if (res) {
       runInAction(() => {
@@ -19,5 +21,11 @@ export default class SessionStore {
         this.merchant = res.merchant;
       });
     }
+  }
+
+  resetSession() {
+    this.id = null;
+    this.merchant = null;
+    this.option = null;
   }
 }

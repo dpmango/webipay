@@ -4,11 +4,9 @@ import { initReactI18next } from 'react-i18next';
 import Backend from 'i18next-http-backend';
 import LanguageDetector from 'i18next-browser-languagedetector';
 
-// import ru from '@assets/dictionaries/ru';
-import en from '@assets/dictionaries/en';
+import { en } from '@assets/dictionaries';
 
 const resources = {
-  // ru,
   en,
 };
 
@@ -17,7 +15,7 @@ i18n
   .use(LanguageDetector)
   .use(initReactI18next)
   .init({
-    supportedLngs: ['en'], // 'en'
+    supportedLngs: ['en'],
     fallbackLng: 'en',
     defaultNS: '',
     debug: process.env.NODE_ENV !== 'production',
@@ -30,7 +28,7 @@ i18n
       bindI18nStore: '',
       transEmptyNodeValue: '',
       transSupportBasicHtmlNodes: true,
-      transKeepBasicHtmlNodesFor: ['br', 'strong', 'i'],
+      transKeepBasicHtmlNodesFor: ['br', 'a', 'strong', 'i'],
       useSuspense: false,
     },
     interpolation: {

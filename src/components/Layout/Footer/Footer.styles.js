@@ -15,7 +15,7 @@ const Container = styled.footer`
       margin-top: 1em;
     }
     a {
-      color: var(--color-link);
+      color: var(--color-primary);
     }
   }
 `;

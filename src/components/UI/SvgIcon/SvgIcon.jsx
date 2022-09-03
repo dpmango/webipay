@@ -1,6 +1,8 @@
 import React, { useState, memo, useEffect } from 'react';
 import cns from 'classnames';
 
+import { Styled } from './SvgIcon.styles';
+
 const SvgIcon = ({ name, clearColors = true }) => {
   const [viewBox, setViewBox] = useState('0 0 0 0');
   const [width, setWidth] = useState('1em');
@@ -37,10 +39,10 @@ const SvgIcon = ({ name, clearColors = true }) => {
   }, []);
 
   return icon ? (
-    <svg
+    <Styled
       style={{ width: width }}
       viewBox={viewBox}
-      className={`svg-icon svg-icon--${name}`}
+      className={`svg-icon--${name}`}
       preserveAspectRatio="none"
       dangerouslySetInnerHTML={{ __html: icon }}
     />

@@ -1,31 +1,38 @@
-.btn {
+import styled from 'styled-components';
+
+const Styled = styled.button`
+  -webkit-appearance: none;
   display: inline-flex;
   justify-content: center;
-  font-weight: 600;
-  font-family: $baseFont;
-  font-size: 20px;
-  line-height: calc(26 / 20);
-  padding: 23px 30px;
-  border-radius: 11px;
-  transition: background 0.25s $ease, color 0.25s $ease;
+  font-family: var(--font);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 2;
+  padding: 12px 32px;
+  border-radius: 8px;
+  border: 0;
+  box-shadow: none;
+  cursor: pointer;
+  transition: background 0.25s ease-in-out, color 0.25s ease-in-out;
 
   &._primary {
-    background: $colorPrimary;
-    color: white;
+    background: var(--color-primary);
+    color: var(--color-font);
 
     &:hover {
-      background: $colorAccent;
+      background: var(--color-navy);
+      color: var(--color-white);
     }
 
     &._outline {
       background: transparent;
-      border: 2px solid $colorPrimary;
+      border: 2px solid var(--color-primary);
       padding: 14px 24px;
-      color: $colorPrimary;
+      color: var(--color-primary);
 
       &:hover {
         color: white;
-        background: $colorPrimary;
+        background: var(--color-primary);
       }
     }
 
@@ -39,46 +46,6 @@
         background: transparent;
         color: rgba(#000, 0.3);
         border-color: rgba(#000, 0.3);
-      }
-    }
-  }
-
-  &._accent {
-    background: $colorAccent;
-    color: white;
-
-    &:hover {
-      background: rgba($colorAccent, 0.8);
-    }
-
-    &._outline {
-      background: transparent;
-      border: 1px solid $colorAccent;
-      color: $colorAccent;
-
-      &:hover {
-        color: white;
-        background: $colorAccent;
-      }
-    }
-  }
-
-  &._black {
-    background: $fontColor;
-    color: white;
-
-    &:hover {
-      background: rgba($fontColor, 0.8);
-    }
-
-    &._outline {
-      background: transparent;
-      border: 1px solid $fontColor;
-      color: $fontColor;
-
-      &:hover {
-        color: white;
-        background: $fontColor;
       }
     }
   }
@@ -99,7 +66,7 @@
     display: block;
     width: 100%;
   }
-  // icons
+
   &._iconed {
     display: inline-flex;
     align-items: center;
@@ -131,13 +98,16 @@
   }
 
   &[disabled] {
-    background: $colorBg;
-    color: $fontColor;
+    background: var(--color-border);
+    color: var(--color-font);
     cursor: not-allowed;
     pointer-events: none;
 
     &:hover {
-      background: $colorBg;
+      background: var(--color-border);
     }
   }
 }
+`;
+
+export { Styled };

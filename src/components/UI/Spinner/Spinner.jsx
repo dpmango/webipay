@@ -2,7 +2,7 @@ import React, { memo, useState, useContext, useMemo, createContext, useEffect } 
 import cns from 'classnames';
 import ClipLoader from 'react-spinners/ClipLoader';
 
-import st from './Spinner.module.less';
+import { Styled } from './Spinner.styles';
 
 const Themes = {
   PRIMARY: 'primary',
@@ -10,15 +10,15 @@ const Themes = {
 };
 
 const ThemeClasses = {
-  [Themes.PRIMARY]: st._primary,
-  [Themes.BUTTON]: st._button,
+  [Themes.PRIMARY]: '_primary',
+  [Themes.BUTTON]: '_button',
 };
 
-const Spinner = ({ className, theme, color, ...props }) => {
+const Spinner = ({ className, theme = 'primary', color, ...props }) => {
   return (
-    <div className={cns(st.loader, theme && ThemeClasses[theme], className)}>
-      <ClipLoader color={color || '#182D78'} loading={true} size={24} />
-    </div>
+    <Styled className={cns(theme && ThemeClasses[theme], className)}>
+      <ClipLoader color={color || '#50ABFE'} loading={true} size={24} />
+    </Styled>
   );
 };
 

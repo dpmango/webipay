@@ -3,12 +3,10 @@ import { Link, NavLink } from 'react-router-dom';
 import cns from 'classnames';
 
 import { SvgIcon, Spinner } from '@ui';
-import st from './Button.module.less';
+import { Styled } from './Button.styles';
 
 const Themes = {
   PRIMARY: 'primary',
-  ACCENT: 'accent',
-  BLACK: 'black',
 };
 
 const Variants = {
@@ -18,15 +16,13 @@ const Variants = {
 };
 
 const ThemeClasses = {
-  [Themes.PRIMARY]: st._primary,
-  [Themes.ACCENT]: st._accent,
-  [Themes.BLACK]: st._black,
+  [Themes.PRIMARY]: '_primary',
 };
 
 const VariantClasses = {
   [Variants.DEFAULT]: null,
-  [Variants.SMALL]: st._small,
-  [Variants.BIG]: st._big,
+  [Variants.SMALL]: '_small',
+  [Variants.BIG]: '_big',
 };
 
 const Button = ({
@@ -43,15 +39,14 @@ const Button = ({
   ...props
 }) => {
   const classStyle = cns(
-    st.btn,
     theme && ThemeClasses[theme],
     variant && VariantClasses[variant],
-    outline && st._outline,
-    block && st._block,
-    (iconLeft || iconRight) && st._iconed,
-    loading && st._loading,
-    iconLeft && st._iconLeft,
-    iconRight && st._iconRight,
+    outline && '_outline',
+    block && '_block',
+    (iconLeft || iconRight) && '_iconed',
+    loading && '_loading',
+    iconLeft && '_iconLeft',
+    iconRight && '_iconRight',
     className,
     'btn'
   );
@@ -64,7 +59,7 @@ const Button = ({
     );
   } else {
     return (
-      <button className={classStyle} type={type || 'button'} {...props}>
+      <Styled className={classStyle} type={type || 'button'} {...props}>
         {iconLeft && <SvgIcon name={iconLeft} />}
 
         {children}
@@ -72,7 +67,7 @@ const Button = ({
         {loading && <Spinner theme="button" color="#FFF" />}
 
         {iconRight && <SvgIcon name={iconRight} />}
-      </button>
+      </Styled>
     );
   }
 };

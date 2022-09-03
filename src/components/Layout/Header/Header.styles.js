@@ -21,6 +21,11 @@ const Back = styled.div`
   display: inline-flex;
   align-items: center;
   font-size: 15px;
+  cursor: pointer;
+  transition: color 0.25s ease-in-out;
+  &:hover {
+    color: var(--color-primary);
+  }
   svg {
     flex: 0 0 auto;
     font-size: 10px;

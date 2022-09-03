@@ -48,7 +48,7 @@ const Select = observer(({ className }) => {
                 <SvgIcon name={option.name} />
               </OptionLogo>
               <OptionDescription>
-                <Trans>{t(`${option.name}.title`)}</Trans>
+                <Trans t={t} i18nKey={t(`${option.name}.title`)} />
               </OptionDescription>
               <OptionCaret>
                 <SvgIcon name="arrow-right" />

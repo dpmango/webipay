@@ -1,34 +1,22 @@
 import React, { useCallback, useMemo, useState, memo } from 'react';
-import cns from 'classnames';
 import uniqueId from 'lodash/uniqueId';
 import InputMask from 'react-input-mask';
 
-import { SvgIcon, Image } from '@ui';
-import st from './Input.module.less';
-
-const Variants = {
-  DEFAULT: 'default',
-  SMALL: 'small',
-};
-
-const VariantClasses = {
-  [Variants.DEFAULT]: null,
-  [Variants.SMALL]: st._small,
-};
+import { SvgIcon } from '@ui';
+import { copyToClipboard } from '@helpers';
+import { Container, Wrapper, CopyButton, Label, Helper, Error } from './Input.styles';
 
 const Input = ({
   className,
   label,
   inputRef,
-  variant,
-  modifier,
-  allowClear,
   value,
   onChange,
   mask,
   error,
-  showError,
-  cardNumber,
+  helper,
+  copyBtn,
+  bold,
   ...props
 }) => {
   const id = useMemo(() => {
@@ -44,84 +32,52 @@ const Input = ({
     [onChange]
   );
 
-  const onCLearInput = useCallback(() => {
-    if (onChange) {
-      onChange('');
-    }
-  }, [onChange]);
+  const onCopyClick = useCallback(() => {
+    copyToClipboard(value);
+  }, [value]);
 
-  const clearIcon = useMemo(() => {
-    if (allowClear && value) {
+  const copyButton = useMemo(() => {
+    if (copyBtn && value) {
       return (
-        <button type="button" onClick={onCLearInput} className={st.input_clear} title="Очистить">
-          <SvgIcon name="close" />
-        </button>
+        <CopyButton type="button" onClick={onCopyClick} title="Copy">
+          <SvgIcon name="copy" />
+        </CopyButton>
       );
     }
 
     return null;
-  }, [value, allowClear]);
-
-  const cardImage = useMemo(() => {
-    if (!value) return null;
-
-    if (Number(value.slice(0, 1)) === 4) {
-      return '/img/payment/visa.png';
-    } else if ([50, 56, 57, 58, 51, 52, 53, 54, 55].includes(Number(value.slice(0, 2)))) {
-      return '/img/payment/mastercard.svg';
-    }
-
-    return null;
-  }, [value]);
+  }, [value, copyBtn]);
 
   const inputProps = {
     id,
     ref: inputRef,
-    className: cns(st.input_input, allowClear && st._withClear, error && st._withError),
     value,
     onChange: onInputChange,
     ...props,
   };
 
   return (
-    <div
-      style={props.style}
-      className={cns(
-        st.input,
-        variant && VariantClasses[variant],
-        modifier && styles[`_${modifier}`],
-        className
-      )}>
+    <Container style={props.style} className={className}>
       {label && (
-        <label className={st.label} htmlFor={id}>
+        <Label htmlFor={id} bold={bold}>
           {label}
-        </label>
+        </Label>
       )}
 
-      <div className={st.input_wrapper}>
+      <Wrapper error={error} bold={bold} iconed={copyBtn}>
         {props.type === 'textarea' ? (
           <textarea {...inputProps} />
         ) : mask ? (
-          <InputMask
-            mask={mask}
-            // beforeMaskedValueChange={beforeMaskedValueChange}
-            {...inputProps}
-          />
+          <InputMask mask={mask} {...inputProps} />
         ) : (
           <input {...inputProps} />
         )}
 
-        {clearIcon}
+        {copyButton}
 
-        {cardNumber && cardImage && (
-          <div className={st.cardImage}>
-            <Image src={cardImage} />
-          </div>
-        )}
-
-        {error && showError && <div className={st.error}>{error}</div>}
-      </div>
-    </div>
+        {error ? <Error>{error}</Error> : <Helper>{helper}</Helper>}
+      </Wrapper>
+    </Container>
   );
 };
 
