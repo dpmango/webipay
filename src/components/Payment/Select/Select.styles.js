@@ -57,6 +57,11 @@ const Option = styled.div`
   @media screen and (max-width: 767px) {
     padding: 24px 32px;
   }
+  ${(p) =>
+    p.theme.rtl &&
+    `
+    flex-direction: row-reverse;
+  `};
 `;
 
 const OptionLogo = styled.div`
@@ -93,6 +98,7 @@ const OptionCaret = styled.div`
   svg {
     font-size: 10px;
   }
+  transform: ${(p) => p.theme.rtl && 'rotate(180deg)'};
 `;
 
 export { Container, SelectTitle, SelectBox, Option, OptionLogo, OptionDescription, OptionCaret };

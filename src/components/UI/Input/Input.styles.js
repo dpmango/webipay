@@ -4,6 +4,11 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   flex-wrap: wrap;
+  ${(p) =>
+    p.theme.rtl &&
+    `
+    flex-direction: row-reverse;
+  `};
 `;
 
 const Label = styled.label`
@@ -54,7 +59,8 @@ const Wrapper = styled.div`
     ${(p) =>
       p.iconed &&
       `
-      padding-right: 40px;
+        ${!p.theme.rtl && 'padding-right: 40px'};
+        ${p.theme.rtl && 'padding-left: 40px'};
     `}
 
     ${(p) =>
@@ -67,6 +73,12 @@ const Wrapper = styled.div`
         color: rgba(var(--color-red), 0.5);
       }
     `}
+
+    ${(p) =>
+      p.theme.rtl &&
+      `
+      text-align: right;
+    `};
 
     &[disabled] {
       color: var(--color-gray);
@@ -88,7 +100,8 @@ const Wrapper = styled.div`
       ${(p) =>
         p.iconed &&
         `
-        padding-right: 40px;
+        ${!p.theme.rtl && 'padding-right: 40px'};
+        ${p.theme.rtl && 'padding-left: 40px'};
       `}
     }
   }
@@ -99,7 +112,8 @@ const CopyButton = styled.button`
   position: absolute;
   z-index: 3;
   bottom: 0px;
-  right: 0;
+  ${(p) => !p.theme.rtl && 'right: 0'};
+  ${(p) => p.theme.rtl && 'left: 0'};
   font-size: 0;
   background: transparent;
   border: 0;
@@ -114,7 +128,8 @@ const CopyButton = styled.button`
     color: var(--color-primary);
   }
   @media screen and (max-width: 767px) {
-    right: 16px;
+    ${(p) => !p.theme.rtl && 'right: 16px'};
+    ${(p) => p.theme.rtl && 'left: 16px'};
   }
 `;
 
@@ -123,7 +138,8 @@ const Helper = styled.div`
   position: absolute;
   z-index: 1;
   top: -8px;
-  left: 12px;
+  ${(p) => !p.theme.rtl && 'left: 12px'};
+  ${(p) => p.theme.rtl && 'right: 12px'};
   font-weight: 400;
   font-size: 12px;
   line-height: 24px;
@@ -133,7 +149,8 @@ const Helper = styled.div`
   pointer-events: none;
 
   @media screen and (max-width: 767px) {
-    left: 0;
+    ${(p) => !p.theme.rtl && 'left: 0'};
+    ${(p) => p.theme.rtl && 'right:0'};
   }
 `;
 

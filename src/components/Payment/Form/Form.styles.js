@@ -17,29 +17,11 @@ const Head = styled.div`
   justify-content: space-between;
   border-bottom: 1px solid var(--color-border);
   padding: 16px 0 32px;
+  flex-direction: ${(p) => p.theme.rtl && 'row-reverse'};
+
   @media screen and (max-width: 767px) {
     display: block;
     padding: 0px 0 24px;
-  }
-`;
-
-const Back = styled.div`
-  display: inline-flex;
-  align-items: center;
-  font-size: 15px;
-  line-height: 1.56;
-  cursor: pointer;
-  transition: color 0.25s ease-in-out;
-  &:hover {
-    color: var(--color-primary);
-  }
-  svg {
-    flex: 0 0 auto;
-    font-size: 10px;
-    margin-right: 7px;
-  }
-  @media screen and (max-width: 767px) {
-    font-size: 18px;
   }
 `;
 
@@ -99,4 +81,4 @@ const FormCta = styled.div`
   }
 `;
 
-export { Container, Box, Head, Back, Logo, Merchant, Instruction, FormWrapper, FormField, FormCta };
+export { Container, Box, Head, Logo, Merchant, Instruction, FormWrapper, FormField, FormCta };

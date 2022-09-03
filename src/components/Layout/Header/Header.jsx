@@ -7,7 +7,8 @@ import cns from 'classnames';
 import { SvgIcon } from '@ui';
 import { SessionStoreContext } from '@store';
 
-import { Container, Wrapper, Back, Language } from './Header.styles';
+import { Container, Wrapper, Language } from './Header.styles';
+import { Back } from '@styles/Shared.styles';
 
 const Header = observer(({ className }) => {
   const { t, i18n } = useTranslation('header');
@@ -21,6 +22,7 @@ const Header = observer(({ className }) => {
   const languages = useMemo(() => {
     return [
       { value: 'en', label: 'English' },
+      { value: 'ar', label: 'Arabic' },
       { value: 'bg', label: 'Bulgarian', disabled: true },
       { value: 'hr', label: 'Croatian', disabled: true },
       { value: 'cd', label: 'Czech', disabled: true },

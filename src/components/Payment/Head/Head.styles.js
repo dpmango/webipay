@@ -14,11 +14,17 @@ const Wrapper = styled.div`
     justify-content: center;
     padding: 0;
   }
+  ${(p) =>
+    p.theme.rtl &&
+    `
+    flex-direction: row-reverse;
+  `};
 `;
 
 const Logo = styled.div`
   font-size: 0;
-  padding-right: 20px;
+  padding-right: ${(p) => !p.theme.rtl && '20px'};
+  padding-left: ${(p) => p.theme.rtl && '20px'};
   svg {
     font-size: 23px;
   }

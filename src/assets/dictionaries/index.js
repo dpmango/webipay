@@ -1,3 +1,4 @@
 export { default as en } from './en';
 export { default as de } from './de';
 export { default as lv } from './lv';
+export { default as ar } from './ar';

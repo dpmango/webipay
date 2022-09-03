@@ -9,7 +9,6 @@ import {
   Container,
   Box,
   Head,
-  Back,
   Logo,
   Merchant,
   Instruction,
@@ -17,6 +16,7 @@ import {
   FormField,
   FormCta,
 } from './Form.styles';
+import { Back } from '@styles/Shared.styles';
 
 import { PaymentContacts } from '@c/Payment';
 

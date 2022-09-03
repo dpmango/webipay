@@ -15,26 +15,12 @@ const Wrapper = styled.div`
   align-items: center;
   padding: 20px 0;
   transition: 0.25s ease-in-out;
-`;
-
-const Back = styled.div`
-  display: inline-flex;
-  align-items: center;
-  font-size: 15px;
-  cursor: pointer;
-  transition: color 0.25s ease-in-out;
-  &:hover {
-    color: var(--color-primary);
-  }
-  svg {
-    flex: 0 0 auto;
-    font-size: 10px;
-    margin-right: 7px;
-  }
+  flex-direction: ${(p) => p.theme.rtl && 'row-reverse'};
 `;
 
 const Language = styled.div`
-  margin-left: auto;
+  margin-left: ${(p) => (p.theme.rtl ? '0' : 'auto')};
+  margin-right: ${(p) => (p.theme.rtl ? 'auto' : '0')};
 `;
 
-export { Container, Wrapper, Back, Language };
+export { Container, Wrapper, Language };

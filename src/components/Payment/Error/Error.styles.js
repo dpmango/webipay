@@ -13,12 +13,18 @@ const Box = styled.div`
   border: 1px solid var(--color-border);
   border-radius: 16px;
   padding: 16px 32px 32px;
+  ${(p) =>
+    p.theme.rtl &&
+    `
+    flex-direction: row-reverse;
+  `};
 `;
 
 const Icon = styled.div`
   font-size: 0;
   flex: 0 0 auto;
-  margin-right: 32px;
+  margin-right: ${(p) => !p.theme.rtl && '32px'};
+  margin-left: ${(p) => p.theme.rtl && '32px'};
   svg {
     font-size: 50px;
   }

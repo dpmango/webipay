@@ -6,6 +6,8 @@ const Wrapper = styled.div`
   justify-content: center;
   flex-wrap: wrap;
   padding: 16px 0;
+  flex-direction: ${(p) => p.theme.rtl && 'row-reverse'};
+
   @media screen and (max-width: 767px) {
     flex-direction: column;
   }
@@ -14,9 +16,12 @@ const Wrapper = styled.div`
 const Label = styled.div`
   font-size: 15px;
   line-height: 24px;
-  margin-right: 24px;
+  margin-right: ${(p) => !p.theme.rtl && '24px'};
+  margin-left: ${(p) => p.theme.rtl && '24px'};
+
   @media screen and (max-width: 767px) {
-    margin-right: 0;
+    margin-right: ${(p) => !p.theme.rtl && '0'};
+    margin-left: ${(p) => p.theme.rtl && '0'};
   }
 `;
 
@@ -37,18 +42,22 @@ const ContactLink = styled.a`
 `;
 
 const Email = styled(ContactLink)`
-  margin-right: 24px;
+  margin-right: ${(p) => !p.theme.rtl && '24px'};
+  margin-left: ${(p) => p.theme.rtl && '24px'};
+
   svg {
     font-size: 17px;
   }
   @media screen and (max-width: 767px) {
-    margin-right: 0;
+    margin-right: ${(p) => !p.theme.rtl && '0'};
+    margin-left: ${(p) => p.theme.rtl && '0'};
   }
 `;
 
 const Phone = styled(ContactLink)`
   svg {
     font-size: 24px;
+    transform: ${(p) => p.theme.rtl && 'scaleX(-1)'};
   }
 `;
 
