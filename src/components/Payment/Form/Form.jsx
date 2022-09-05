@@ -10,13 +10,13 @@ import {
   Box,
   Head,
   Logo,
+  Back,
   Merchant,
   Instruction,
   FormWrapper,
   FormField,
   FormCta,
 } from './Form.styles';
-import { Back } from '@styles/Shared.styles';
 
 import { PaymentContacts } from '@c/Payment';
 

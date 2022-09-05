@@ -1,10 +1,11 @@
 import React, { useCallback, useMemo, useState, memo } from 'react';
 import uniqueId from 'lodash/uniqueId';
+import { useTranslation } from 'react-i18next';
 import InputMask from 'react-input-mask';
 
 import { SvgIcon } from '@ui';
 import { copyToClipboard } from '@helpers';
-import { Container, Wrapper, CopyButton, Label, Helper, Error } from './Input.styles';
+import { Container, Wrapper, CopyButton, CopyMessage, Label, Helper, Error } from './Input.styles';
 
 const Input = ({
   className,
@@ -19,6 +20,9 @@ const Input = ({
   bold,
   ...props
 }) => {
+  const [copied, setCopied] = useState(false);
+  const { t } = useTranslation('ui');
+
   const id = useMemo(() => {
     return uniqueId();
   }, []);
@@ -33,20 +37,29 @@ const Input = ({
   );
 
   const onCopyClick = useCallback(() => {
-    copyToClipboard(value);
+    copyToClipboard(value).then(() => {
+      setCopied(true);
+    });
   }, [value]);
+
+  const handleMouseLeave = useCallback(() => {
+    setTimeout(() => {
+      setCopied(false);
+    }, 300);
+  }, []);
 
   const copyButton = useMemo(() => {
     if (copyBtn && value) {
       return (
-        <CopyButton type="button" onClick={onCopyClick} title="Copy">
+        <CopyButton type="button" onClick={onCopyClick} onMouseLeave={handleMouseLeave}>
           <SvgIcon name="copy" />
+          <CopyMessage>{t(copied ? 'copied' : 'copy')}</CopyMessage>
         </CopyButton>
       );
     }
 
     return null;
-  }, [value, copyBtn]);
+  }, [value, copyBtn, copied]);
 
   const inputProps = {
     id,

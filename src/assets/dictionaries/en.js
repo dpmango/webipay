@@ -70,4 +70,8 @@ export default {
       `,
     },
   },
+  ui: {
+    copy: 'Click to copy',
+    copied: 'Copied',
+  },
 };

@@ -4,8 +4,7 @@ import { useTranslation } from 'react-i18next';
 
 import { SvgIcon, Select } from '@ui';
 
-import { Container, Wrapper, Logo, Language } from './Header.styles';
-import { Back } from '@styles/Shared.styles';
+import { Container, Wrapper, Back, Logo, Language } from './Header.styles';
 
 const Header = ({ className }) => {
   const { t, i18n } = useTranslation('header');

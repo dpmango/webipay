@@ -7,6 +7,23 @@ const Container = styled.div`
   ${(p) => p.theme.rtl && 'flex-direction: row-reverse'};
 `;
 
+const Overlay = styled.div`
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 300vh;
+  z-index: 3;
+  background: #000;
+  opacity: 0.5;
+  pointer-events: none;
+
+  @media screen and (max-width: 767px) {
+    display: ${(p) => p.open && 'block'};
+  }
+`;
+
 const Label = styled.label`
   flex: 0 0 37%;
   display: block;
@@ -21,7 +38,7 @@ const Label = styled.label`
 const Wrapper = styled.div`
   flex: 0 0 100%;
   position: relative;
-  z-index: 1;
+  z-index: 5;
 
   .react-select__control {
     font-weight: 400;
@@ -34,6 +51,9 @@ const Wrapper = styled.div`
 
     &--menu-is-open {
       z-index: 10;
+      .react-select__indicator {
+        transform: rotate(180deg);
+      }
     }
 
     &--is-focused,
@@ -52,6 +72,7 @@ const Wrapper = styled.div`
   .react-select__indicator {
     color: var(--color-font);
     padding: 0;
+    transition: transform 0.25s ease;
 
     svg {
       width: 14px;
@@ -122,4 +143,4 @@ const Wrapper = styled.div`
   `}
 `;
 
-export { Container, Wrapper, Label };
+export { Container, Overlay, Wrapper, Label };

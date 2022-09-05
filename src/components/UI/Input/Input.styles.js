@@ -79,14 +79,13 @@ const Wrapper = styled.div`
     &[disabled] {
       color: var(--color-gray);
     }
-
-    input:disabled,
-    textarea:disabled,
-    input:disabled::placeholder,
-    textarea:disabled::placeholder {
-      -webkit-text-fill-color: currentcolor;
-      opacity: 1;
-    }
+  }
+  input:disabled,
+  textarea:disabled,
+  input:disabled::placeholder,
+  textarea:disabled::placeholder {
+    -webkit-text-fill-color: currentcolor;
+    opacity: 1;
   }
   @media screen and (max-width: 767px) {
     flex-basis: 100%;
@@ -101,6 +100,25 @@ const Wrapper = styled.div`
       `}
     }
   }
+`;
+
+const CopyMessage = styled.div`
+  position: absolute;
+  z-index: 2;
+  bottom: calc(100% + 6px);
+  right: 0;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 32px;
+  color: var(--color-gray);
+  padding: 3px 8px;
+  background: white;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  opacity: 0;
+  white-space: nowrap;
+  transition: opacity 0.25s ease;
+  pointer-events: none;
 `;
 
 const CopyButton = styled.button`
@@ -122,6 +140,10 @@ const CopyButton = styled.button`
   }
   &:hover {
     color: var(--color-primary);
+    ${CopyMessage} {
+      opacity: 1;
+      pointer-events: all;
+    }
   }
   @media screen and (max-width: 767px) {
     ${(p) => !p.theme.rtl && 'right: 16px'};
@@ -155,4 +177,4 @@ const Error = styled(Helper)`
   color: var(--color-red);
 `;
 
-export { Container, Wrapper, CopyButton, Label, Helper, Error };
+export { Container, Wrapper, CopyButton, CopyMessage, Label, Helper, Error };

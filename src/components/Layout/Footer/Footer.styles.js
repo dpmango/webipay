@@ -1,11 +1,10 @@
 import styled from 'styled-components';
 
 const Container = styled.footer`
-  position: relative;
-  z-index: 2;
   background: var(--color-navy);
   color: white;
-  padding: 80px 0;
+  padding: 78px 0 80px;
+  margin-bottom: -2px;
   text-align: center;
   p {
     font-size: 14px;
