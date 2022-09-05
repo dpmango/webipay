@@ -23,6 +23,11 @@ export default {
         instruction:
           'Please make the transfer to below details from your bank account. Make sure that all entered details are correct',
       },
+      errorpay: {
+        name: 'Wirepay',
+        title: 'Will trigger an error',
+        instruction: 'nope',
+      },
     },
     form: {
       id: {

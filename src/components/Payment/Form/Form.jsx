@@ -1,5 +1,4 @@
 import React, { useCallback, useContext, useMemo, useState } from 'react';
-import { Link, useSearchParams } from 'react-router-dom';
 import { observer } from 'mobx-react-lite';
 import { Trans, useTranslation } from 'react-i18next';
 
@@ -20,35 +19,36 @@ import {
 
 import { PaymentContacts } from '@c/Payment';
 
-const Form = observer(({ className, payId }) => {
+const Form = observer(({ className }) => {
   const [transferId, setTransferId] = useState('');
   const { t } = useTranslation('payment');
   const sessionContext = useContext(SessionStoreContext);
-  const [searchParams, setSearchParams] = useSearchParams();
 
   const paymentOption = useMemo(() => {
-    if (payId === '1') {
+    if (sessionContext.payId === '1') {
       return 'pandapay';
-    } else if (payId === '2') {
+    } else if (sessionContext.payId === '2') {
       return 'wirepay';
     }
-  }, [payId]);
+  }, [sessionContext.payId]);
 
   const fields = useMemo(() => {
+    const { bankName, branchName, accountType, accountNumber, accountHolder, amount } =
+      sessionContext.paymentData;
+
     return [
-      { label: t('form.bankName'), value: 'SBI' },
-      { label: t('form.branchName'), value: 'ADB BARWALA' },
-      { label: t('form.accountType'), value: 'Savings Account' },
-      { label: t('form.accountNumber'), value: '3025766' },
-      { label: t('form.accountHolder'), value: 'Testing Name' },
-      { label: t('form.amount'), value: '6000.00 JPY' },
+      { label: t('form.bankName'), value: bankName },
+      { label: t('form.branchName'), value: branchName },
+      { label: t('form.accountType'), value: accountType },
+      { label: t('form.accountNumber'), value: accountNumber },
+      { label: t('form.accountHolder'), value: accountHolder },
+      { label: t('form.amount'), value: amount },
     ];
-  }, [payId]);
+  }, [sessionContext.payId, sessionContext.paymentData]);
 
   const handleBackClick = useCallback(() => {
-    const id = searchParams.get('id');
-    setSearchParams({ id: id });
-  }, [searchParams]);
+    sessionContext.setPay(null);
+  }, []);
 
   const isValidTranferId = useMemo(() => {
     if (transferId.length <= 6) return false;
@@ -79,7 +79,7 @@ const Form = observer(({ className, payId }) => {
           </Instruction>
 
           <FormWrapper>
-            {payId === '1' && (
+            {sessionContext.payId === '1' && (
               <FormField>
                 <Input
                   bold
@@ -100,7 +100,9 @@ const Form = observer(({ className, payId }) => {
             ))}
 
             <FormCta>
-              <Button theme="primary">{t('form.close')}</Button>
+              <Button theme="primary" onClick={() => sessionContext.resetSession()}>
+                {t('form.close')}
+              </Button>
             </FormCta>
           </FormWrapper>
 

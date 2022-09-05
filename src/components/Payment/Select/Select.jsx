@@ -1,9 +1,10 @@
 import React, { useCallback, useContext, useMemo, useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
 import { observer } from 'mobx-react-lite';
 import { Trans, useTranslation } from 'react-i18next';
 
 import { SvgIcon } from '@ui';
+import { SessionStoreContext } from '@store';
+
 import {
   Container,
   SelectTitle,
@@ -23,19 +24,19 @@ const options = [
     id: 2,
     name: 'wirepay',
   },
+  {
+    id: 3,
+    name: 'errorpay',
+  },
 ];
 
 const Select = observer(({ className }) => {
   const { t } = useTranslation('payment', { keyPrefix: 'options' });
-  const [searchParams, setSearchParams] = useSearchParams();
+  const sessionContext = useContext(SessionStoreContext);
 
-  const handleOptionSelect = useCallback(
-    (payId) => {
-      const id = searchParams.get('id');
-      setSearchParams({ id: id, pay: payId });
-    },
-    [searchParams]
-  );
+  const handleOptionSelect = useCallback((payId) => {
+    sessionContext.setPay(payId.toString());
+  }, []);
 
   return (
     <Container className={className}>

@@ -1,13 +1,14 @@
 import React, { useContext } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { observer } from 'mobx-react-lite';
 import { Trans, useTranslation } from 'react-i18next';
 
 import { SvgIcon, Button } from '@ui';
+import { SessionStoreContext } from '@store';
 import { Container, Box, Icon, Text, Cta } from './Error.styles';
 
-const Error = ({ className }) => {
+const Error = observer(({ className }) => {
   const { t } = useTranslation('payment', { keyPrefix: 'errors' });
-  const [searchParams, setSearchParams] = useSearchParams();
+  const sessionContext = useContext(SessionStoreContext);
 
   return (
     <Container className={className}>
@@ -20,13 +21,13 @@ const Error = ({ className }) => {
         </Box>
 
         <Cta>
-          <Button theme="primary" onClick={() => setSearchParams({ id: 1 })}>
+          <Button theme="primary" onClick={() => sessionContext.resetSession()}>
             {t('back')}
           </Button>
         </Cta>
       </div>
     </Container>
   );
-};
+});
 
 export default Error;

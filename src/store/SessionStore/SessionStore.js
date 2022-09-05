@@ -2,30 +2,39 @@ import { makeAutoObservable, runInAction } from 'mobx';
 import sessionApi from '@api/session';
 
 export default class SessionStore {
-  id = null;
-  merchant = null;
-  option = null;
+  error = null;
+  payId = null;
+  paymentData = {};
 
   constructor() {
     makeAutoObservable(this);
   }
 
-  async setMerchant(id) {
-    const res = await sessionApi.getMerchantFake(id).catch(() => {
+  async setPay(id) {
+    if (id === null) {
       this.resetSession();
+      return;
+    }
+
+    const res = await sessionApi.getPaymentFake(id).catch(() => {
+      this.setError(true);
     });
 
     if (res) {
       runInAction(() => {
-        this.id = id;
-        this.merchant = res.merchant;
+        this.payId = id;
+        this.paymentData = { ...res };
       });
     }
   }
 
+  setError(error) {
+    this.error = error;
+  }
+
   resetSession() {
-    this.id = null;
-    this.merchant = null;
-    this.option = null;
+    this.payId = null;
+    this.error = null;
+    this.paymentData = {};
   }
 }

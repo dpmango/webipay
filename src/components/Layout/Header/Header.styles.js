@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
 const Container = styled.header`
+  position: relative;
+  z-index: 2;
   display: block;
   background: transparent;
   border-bottom: 1px solid var(--color-border);

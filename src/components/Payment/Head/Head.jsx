@@ -4,6 +4,7 @@ import { observer } from 'mobx-react-lite';
 import { Trans, useTranslation } from 'react-i18next';
 
 import { SvgIcon } from '@ui';
+import { getEnv } from '@helpers';
 import { SessionStoreContext } from '@store';
 import { Container, Wrapper, Logo, Merchant } from './Head.styles';
 
@@ -19,7 +20,7 @@ const Head = observer(({ className }) => {
             <SvgIcon name="logo" />
           </Logo>
           <Merchant>
-            {t('merchant')} {sessionContext.merchant}
+            {t('merchant')} {getEnv('MERCHANT')}
           </Merchant>
         </Wrapper>
       </div>

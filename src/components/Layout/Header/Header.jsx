@@ -1,17 +1,17 @@
 import React, { useCallback, useContext, useMemo, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { observer } from 'mobx-react-lite';
 import { useTranslation } from 'react-i18next';
 
 import { SvgIcon, Select } from '@ui';
-
+import { SessionStoreContext } from '@store';
 import { Container, Wrapper, Back, Logo, Language } from './Header.styles';
 
-const Header = ({ className }) => {
+const Header = observer(({ className }) => {
   const { t, i18n } = useTranslation('header');
-  const navigate = useNavigate();
+  const sessionContext = useContext(SessionStoreContext);
 
   const handleBackClick = () => {
-    navigate('/', { replace: true });
+    sessionContext.resetSession();
   };
 
   const languages = useMemo(() => {
@@ -70,6 +70,6 @@ const Header = ({ className }) => {
       </div>
     </Container>
   );
-};
+});
 
 export default Header;
