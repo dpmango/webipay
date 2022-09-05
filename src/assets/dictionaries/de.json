@@ -1,0 +1,55 @@
+{
+  "header": {
+    "back": "Abbrechen"
+  },
+  "payment": {
+    "head": {
+      "merchant": "Zahlung an:",
+      "back": "Option ändern"
+    },
+    "options": {
+      "title": "Wählen Sie eine Zahlungsoption:",
+      "pandapay": {
+        "name": "Pandapay",
+        "title": "Von Ihrem Bankkonto bezahlen",
+        "instruction": "Bitte tragen Sie die Überweisungs-ID in das Feld Begünstigter ein und nehmen Sie die Überweisung von Ihrem Bankkonto vor.<br/>Ohne Überweisungs-ID wird Ihre Zahlung nicht gutgeschrieben.<br/><br/>Beispiel: 2747420 ヤマ ダ タロ"
+      },
+      "wirepay": {
+        "name": "Wirepay",
+        "title": "Von Ihrem Bankkonto bezahlen,<br/> auch Direktzahlung genannt",
+        "instruction": "Bitte überweisen Sie von Ihrem Bankkonto an die untenstehenden Angaben. Stellen Sie sicher, dass alle eingegebenen Daten korrekt sind"
+      }
+    },
+    "form": {
+      "id": {
+        "label": "Transfer-ID",
+        "required": "Bitte ausfüllen",
+        "error": "Ungültige Nummer"
+      },
+      "bankName": "Bankname",
+      "branchName": "Zweigstellenname",
+      "accountType": "Kontotyp",
+      "accountNumber": "Kontonummer",
+      "accountHolder": "Kontoinhaber",
+      "amount": "Betrag",
+      "close": "Schließen"
+    },
+    "contacts": {
+      "title": "Zahlungsanfragen:",
+      "email": "suppor@ovspay.jp",
+      "phone": "03–6380–8113"
+    },
+    "errors": {
+      "badRequest": "Leider konnten wir Ihre Anfrage nicht bearbeiten. Bitte wählen Sie eine andere Zahlungsoption oder versuchen Sie es später erneut.",
+      "pendingRequest": "Diese Anfrage wurde bereits bearbeitet. Bitte kehren Sie zum Händler zurück, um eine neue Zahlung vorzunehmen.",
+      "expiredRequest": "Diese Anfrage ist abgelaufen. Bitte kehren Sie zum Händler zurück, um eine neue Zahlung vorzunehmen.",
+      "back": "Zurück zum Händler"
+    }
+  },
+  "footer": {
+    "top": "zestPay ist ein eingetragener Handelsname von PSI-Pay Ltd, einem Unternehmen, das von der <a href=\"https://www.fca.org.uk/\" target=\"_blank\">Financial Conduct Authority autorisiert</a> und reguliert wird des Vereinigten Königreichs gemäß den Electronic Money Regulations 2011 (Registerreferenznummer 900011) für die Ausgabe von elektronischem Geld.",
+    "poweredby": "zestPay wird von Trustly betrieben, einem autorisierten Zahlungsinstitut gemäß der Regulierung der schwedischen Finanzaufsichtsbehörde (FSA).",
+    "copyright": "© 2022, zestPay. Alle Rechte vorbehalten.",
+    "policies": "Richtlinien"
+  }
+}

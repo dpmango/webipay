@@ -1,0 +1,55 @@
+{
+  "header": {
+    "back": "Atcelt"
+  },
+  "payment": {
+    "head": {
+      "merchant": "Maksājums:",
+      "back": "Mainīt opciju"
+    },
+    "options": {
+      "title": "Atlasiet maksājuma iespēju:",
+      "pandapay": {
+        "name": "Pandapay",
+        "title": "Maksājiet no sava bankas konta",
+        "instruction": "Lūdzu, aizpildiet pārskaitījuma ID laukā Saņēmējs un veiciet pārskaitījumu no sava bankas konta.<br/>Bez pārskaitījuma ID jūsu maksājums netiks ieskaitīts.<br/><br/>Piemērs: 2747420 ヤマ ダ タロ"
+      },
+      "wirepay": {
+        "name": "Wirepay",
+        "title": "Maksājiet no sava bankas konta,<br/> pazīstams arī kā tiešais maksājums",
+        "instruction": "Lūdzu, veiciet pārskaitījumu no sava bankas konta uz tālāk norādīto informāciju. Pārliecinieties, vai visa ievadītā informācija ir pareiza."
+      }
+    },
+    "form": {
+      "id": {
+        "label": "Pārsūtīšanas ID",
+        "required": "Lūdzu aizpildiet",
+        "error": "Nederīgs numurs"
+      },
+      "bankName": "Bankas nosaukums",
+      "branchName": "filiāles nosaukums",
+      "accountType": "Konta veids",
+      "accountNumber": "Konta numurs",
+      "accountHolder": "Konta turētājs",
+      "amount": "Summa",
+      "close": "Aizvērt"
+    },
+    "contacts": {
+      "title": "Maksājumu pieprasījumi:",
+      "email": "suppor@ovspay.jp",
+      "phone": "03–6380–8113"
+    },
+    "errors": {
+      "badRequest": "Diemžēl mēs nevarējām apstrādāt jūsu pieprasījumu. Lūdzu, atlasiet citu maksājuma veidu vai vēlāk mēģiniet vēlreiz.",
+      "pendingRequest": "Šis pieprasījums jau ir apstrādāts. Lūdzu, atgriezieties pie tirgotāja, lai veiktu jaunu maksājumu.",
+      "expiredRequest": "Šis pieprasījums ir beidzies. Lūdzu, atgriezieties pie tirgotāja, lai veiktu jaunu maksājumu.",
+      "back": "Atpakaļ pie tirgotāja"
+    }
+  },
+  "footer": {
+    "top": "zestPay ir PSI-Pay Ltd reģistrēts tirdzniecības nosaukums, uzņēmums, kuru pilnvaro un regulē <a href=\"https://www.fca.org.uk/\" target=\"_blank\">Finanšu uzraudzības iestāde</a> Apvienotās Karalistes 2011. gada Elektroniskās naudas noteikumiem (reģistra atsauces numurs 900011) par elektroniskās naudas emisiju.",
+    "poweredby": "zestPay nodrošina Trustly, pilnvarota maksājumu iestāde saskaņā ar Zviedrijas Finanšu uzraudzības iestādes (FSA) noteikumiem.",
+    "copyright": "© 2022, zestPay. Visas tiesības aizsargātas.",
+    "policies": "“Politikas”"
+  }
+}
