@@ -80,6 +80,10 @@ const Wrapper = styled.div`
     }
   }
 
+  .react-select__single-value {
+    overflow: visible;
+  }
+
   .react-select__indicator-separator {
     display: none;
   }

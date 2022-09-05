@@ -18,9 +18,12 @@ import {
 } from './Form.styles';
 
 import { PaymentContacts } from '@c/Payment';
+import { useEffect } from 'react';
 
 const Form = observer(({ className }) => {
   const [transferId, setTransferId] = useState('');
+  const [showTransferError, setShowTransferError] = useState(false);
+
   const { t } = useTranslation('payment');
   const sessionContext = useContext(SessionStoreContext);
 
@@ -57,6 +60,12 @@ const Form = observer(({ className }) => {
     return true;
   }, [transferId]);
 
+  useEffect(() => {
+    if (transferId.length) {
+      setShowTransferError(true);
+    }
+  }, [transferId]);
+
   return (
     <Container className={className}>
       <div className="container narrow">
@@ -85,7 +94,7 @@ const Form = observer(({ className }) => {
                   bold
                   value={transferId}
                   helper={t('form.id.required')}
-                  error={!isValidTranferId && t('form.id.error')}
+                  error={showTransferError && !isValidTranferId && t('form.id.error')}
                   label={t('form.id.label')}
                   onChange={(v) => setTransferId(v)}
                   copyBtn={true}
@@ -94,7 +103,7 @@ const Form = observer(({ className }) => {
             )}
 
             {fields.map((field, idx) => (
-              <FormField key={idx}>
+              <FormField key={idx} onClick={() => setShowTransferError(true)}>
                 <Input value={field.value} label={field.label} disabled copyBtn={true} />
               </FormField>
             ))}
