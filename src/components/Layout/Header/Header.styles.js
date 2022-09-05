@@ -9,6 +9,9 @@ const Container = styled.header`
   transition: transform 0.25s ease-in-out;
   will-change: transform;
   backface-visibility: hidden;
+  @media screen and (max-width: 767px) {
+    border-bottom: 0;
+  }
 `;
 
 const Wrapper = styled.div`
@@ -20,6 +23,7 @@ const Wrapper = styled.div`
   flex-direction: ${(p) => p.theme.rtl && 'row-reverse'};
   @media screen and (max-width: 767px) {
     padding-top: 48px;
+    border-bottom: 1px solid var(--color-border);
   }
 `;
 

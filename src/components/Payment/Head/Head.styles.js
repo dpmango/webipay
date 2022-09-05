@@ -36,6 +36,10 @@ const Logo = styled.div`
 const Merchant = styled.div`
   font-size: 18px;
   line-height: 1.55;
+  color: var(--color-gray);
+  span {
+    color: var(--color-font);
+  }
 `;
 
 export { Container, Wrapper, Logo, Merchant };

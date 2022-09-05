@@ -20,7 +20,7 @@ const Head = observer(({ className }) => {
             <SvgIcon name="logo" />
           </Logo>
           <Merchant>
-            {t('merchant')} {getEnv('MERCHANT')}
+            {t('merchant')} <span>{getEnv('MERCHANT')}</span>
           </Merchant>
         </Wrapper>
       </div>

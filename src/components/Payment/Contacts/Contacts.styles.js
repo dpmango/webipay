@@ -28,13 +28,14 @@ const Label = styled.div`
 const ContactLink = styled.a`
   display: inline-flex;
   align-items: center;
-  font-weight: 600;
   font-size: 15px;
   line-height: 32px;
   color: var(--color-primary);
+  text-decoration: underline;
   transition: color 0.25s ease-in-out;
   &:hover {
     color: var(--color-font);
+    text-decoration: none;
   }
   svg {
     margin-right: 12px;

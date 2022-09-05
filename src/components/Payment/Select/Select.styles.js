@@ -83,12 +83,11 @@ const OptionLogo = styled.div`
 const OptionDescription = styled.div`
   flex: 0 0 calc(55% - 10px);
   font-weight: 400;
-  font-size: 18px;
+  font-size: 15px;
   line-height: 24px;
   padding-right: 10px;
   @media screen and (max-width: 767px) {
     flex-basis: calc(100% - 10px);
-    font-size: 15px;
   }
 `;
 
