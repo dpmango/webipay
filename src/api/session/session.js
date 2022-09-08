@@ -6,6 +6,7 @@ export default {
       setTimeout(() => {
         if (id === '1') {
           resolve({
+            transferId: '123456789',
             bankName: 'SBI',
             branchName: 'ADB BARWALA',
             accountType: 'Savings Account',
