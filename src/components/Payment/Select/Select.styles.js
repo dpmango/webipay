@@ -37,7 +37,7 @@ const Option = styled.div`
   cursor: pointer;
   transition: background 0.25s ease-in-out;
   &:hover {
-    background: rgba(80, 171, 254, 0.2);
+    background: var(--color-background);
   }
   &::after {
     display: block;

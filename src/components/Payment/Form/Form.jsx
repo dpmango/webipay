@@ -36,10 +36,10 @@ const Form = observer(({ className }) => {
   }, [sessionContext.payId]);
 
   const fields = useMemo(() => {
-    const { bankName, branchName, accountType, accountNumber, accountHolder, amount } =
+    const { transferId, bankName, branchName, accountType, accountNumber, accountHolder, amount } =
       sessionContext.paymentData;
 
-    return [
+    const arr = [
       { label: t('form.bankName'), value: bankName },
       { label: t('form.branchName'), value: branchName },
       { label: t('form.accountType'), value: accountType },
@@ -47,6 +47,11 @@ const Form = observer(({ className }) => {
       { label: t('form.accountHolder'), value: accountHolder },
       { label: t('form.amount'), value: amount },
     ];
+
+    if (transferId) {
+      arr.unshift({ label: t('form.id.label'), value: transferId });
+    }
+    return arr;
   }, [sessionContext.payId, sessionContext.paymentData]);
 
   const handleBackClick = useCallback(() => {
@@ -88,7 +93,7 @@ const Form = observer(({ className }) => {
           </Instruction>
 
           <FormWrapper>
-            {sessionContext.payId === '1' && (
+            {/* {sessionContext.payId === '1' && (
               <FormField>
                 <Input
                   bold
@@ -100,7 +105,7 @@ const Form = observer(({ className }) => {
                   copyBtn={true}
                 />
               </FormField>
-            )}
+            )} */}
 
             {fields.map((field, idx) => (
               <FormField key={idx} onClick={() => setShowTransferError(true)}>

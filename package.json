@@ -10,7 +10,7 @@
     "build": "cross-env NODE_ENV=production GENERATE_SOURCEMAP=false craco build",
     "test": "craco test",
     "lint:js:fix": "eslint './src/**/*.{js,jsx}' --fix",
-    "deploy": "npm run build && cp build/index.html build/200.html && surge --project ./build --domain webipay.surge.sh",
+    "deploy": "npm run build && cp build/index.html build/200.html && surge --project ./build --domain zestpay.surge.sh",
     "eject": "react-scripts eject"
   },
   "husky": {

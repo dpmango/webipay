@@ -6,6 +6,7 @@ export default {
       setTimeout(() => {
         if (id === '1') {
           resolve({
+            transferId: '123456789',
             bankName: 'SBI',
             branchName: 'ADB BARWALA',
             accountType: 'Savings Account',
@@ -15,7 +16,8 @@ export default {
           });
         } else if (id === '2') {
           resolve({
-            bankName: 'SBI 2',
+            // transferId: '987654321',
+            bankName: 'SBI',
             branchName: 'ADB BARWALA',
             accountType: 'Savings Account',
             accountNumber: '3025766',

@@ -162,7 +162,7 @@ const Helper = styled.div`
   font-size: 12px;
   line-height: 24px;
   padding: 0 2px;
-  background: rgba(80, 171, 254, 0.2);
+  background: var(--color-background);
   color: var(--color-primary);
   pointer-events: none;
 

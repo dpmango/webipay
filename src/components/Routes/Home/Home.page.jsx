@@ -11,7 +11,7 @@ const HomePage = observer(({ tab }) => {
   return (
     <>
       <Helmet>
-        <title>Webipay</title>
+        <title>Zestpay</title>
       </Helmet>
 
       <PaymentHead />

@@ -7,7 +7,7 @@ const PolicyPage = ({ tab }) => {
   return (
     <>
       <Helmet>
-        <title>Webipay - Policy</title>
+        <title>Zestpay - Policy</title>
       </Helmet>
 
       <PolicyText />

@@ -20,7 +20,7 @@ const Styled = styled.button`
     color: var(--color-font);
 
     &:hover {
-      background: #0562B8;
+      background: #0CBA65;
       color: var(--color-white);
     }
 

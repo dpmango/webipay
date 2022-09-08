@@ -127,7 +127,7 @@ const Wrapper = styled.div`
     }
 
     &--is-focused {
-      background: rgba(80, 171, 254, 0.2);
+      background: var(--color-background);
       color: var(--color-font);
     }
   }
