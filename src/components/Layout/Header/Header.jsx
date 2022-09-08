@@ -5,6 +5,8 @@ import { useTranslation } from 'react-i18next';
 import { SvgIcon, Select } from '@ui';
 import { SessionStoreContext } from '@store';
 import { Container, Wrapper, Back, Logo, Language } from './Header.styles';
+import logo from '@assets/img/logo.png';
+import logo2x from '@assets/img/logo@2x.png';
 
 const Header = observer(({ className }) => {
   const { t, i18n } = useTranslation('header');
@@ -54,7 +56,7 @@ const Header = observer(({ className }) => {
           </Back>
 
           <Logo>
-            <SvgIcon name="logo" />
+            <img src={logo} srcSet={`${logo2x} 2x`} alt="logo" />
           </Logo>
 
           <Language>
