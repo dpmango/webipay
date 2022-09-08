@@ -62,6 +62,7 @@ const Header = observer(({ className }) => {
           <Language>
             <Select
               theme="ghost"
+              defaultMenuIsOpen={true}
               value={selectedLang}
               options={languages}
               maxMenuHeight={512}

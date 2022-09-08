@@ -126,6 +126,7 @@ const Wrapper = styled.div`
       color: var(--color-white);
     }
 
+    &:active,
     &--is-focused {
       background: var(--color-background);
       color: var(--color-font);
