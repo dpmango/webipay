@@ -49,7 +49,7 @@ const Form = observer(({ className }) => {
     ];
 
     if (transferId) {
-      arr.unshift({ label: t('form.id.label'), value: transferId });
+      arr.unshift({ label: t('form.id.label'), value: transferId, isBold: true });
     }
     return arr;
   }, [sessionContext.payId, sessionContext.paymentData]);
@@ -109,7 +109,13 @@ const Form = observer(({ className }) => {
 
             {fields.map((field, idx) => (
               <FormField key={idx} onClick={() => setShowTransferError(true)}>
-                <Input value={field.value} label={field.label} disabled copyBtn={true} />
+                <Input
+                  value={field.value}
+                  label={field.label}
+                  disabled
+                  bold={field.isBold}
+                  copyBtn={true}
+                />
               </FormField>
             ))}
 
